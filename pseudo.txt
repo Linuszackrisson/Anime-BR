@@ -1,0 +1,55 @@
+1. Interface Character
+    - name : string
+    - url : string
+
+2. Funktioner:
+   - fetchCharacters() : Hämtar en lista av karaktärer från Jikan API.
+   - getRandomCharacter(characters) : Returnerar en slumpmässig karaktär från listan.
+   - displayCharacters(character1, character2) : Visar två karaktärer med deras namn och porträtt.
+   - rollDice() : Kastar en tärning, returnerar ett värde mellan 1 och 6.
+   - startFight() : Avgör vinnaren baserat på tärningens resultat.
+   - replaceLoser(loser, characters) : Ersätter förloraren med en ny slumpad karaktär.
+
+3. Initialisering:
+   - Skapa en tom lista 'characters' för att hålla karaktärsdata.
+   - Kör fetchCharacters() för att fylla listan 'characters' med karaktärer från API:et.
+
+4. Huvudlogik:
+
+   fetchCharacters()
+   - Hämta karaktärsdata från Jikan API.
+   - För varje karaktär i svar, skapa ett nytt Character-objekt.
+   - Lägg till Character-objektet till listan 'characters'.
+
+   Hämta och visa två slumpmässiga karaktärer
+   - Skapa 'character1' genom att kalla getRandomCharacter(characters).
+   - Skapa 'character2' genom att kalla getRandomCharacter(characters).
+   - displayCharacters(character1, character2).
+
+5. Vid klick på "Start Fight" knapp:
+   - Kalla på rollDice().
+   - Om resultatet är mindre än eller lika med 3:
+       - character1 vinner.
+       - Kalla replaceLoser(character2, characters) för att byta ut character2 mot en ny karaktär.
+   - Om resultatet är 4 eller högre:
+       - character2 vinner.
+       - Kalla replaceLoser(character1, characters) för att byta ut character1 mot en ny karaktär.
+   - Uppdatera displayCharacters(character1, character2) för att visa nya karaktärerna.
+
+6. Funktioner för detaljerad implementation:
+
+   fetchCharacters():
+      - Gör en API-anrop till https://kitsu.io/api/edge/characters.
+      - Om anropet är lyckat, lägg till varje karaktärs namn och bild-URL till 'characters'-listan.
+
+   getRandomCharacter(characters):
+      - Returnera ett slumpmässigt valt Character-objekt från 'characters' listan.
+
+   displayCharacters(character1, character2):
+      - Visa 'character1' och 'character2' med deras namn och porträtt på skärmen.
+
+   rollDice():
+      - Returnera ett slumpmässigt tal mellan 1 och 6.
+
+   replaceLoser(loser, characters):
+      - Ersätt 'loser' karaktären med ett nytt slumpmässigt valt Character-objekt från 'characters' listan.

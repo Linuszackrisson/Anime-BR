@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Fight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>ANIME BATTLE ROYALE SIMULATOR</h1>
+    <h2>Who will be the last standing champion?</h2>
+    <p id="round-counter">Round: 0</p>
+    
+    <!-- Character Display -->
+    <div id="characters">
+      <div id="character1" class="character-card">
+        <img id="char1-image" src="" alt="Character 1 Image">
+        <h2 id="char1-name"></h2>
+      </div>
+      <div id="character2" class="character-card">
+        <img id="char2-image" src="" alt="Character 2 Image">
+        <h2 id="char2-name"></h2>
+      </div>
+    </div>
+
+    <!-- Fight Button -->
+    <button id="start-fight">Start Fight</button>
+    
+    <!-- Result Display -->
+    <p id="result"></p>
+
+    <!-- Winner Display and Play Again Button (Hidden initially) -->
+    <div id="winner-display" style="display: none;">
+      <h2 id="winner-label">WINNER</h2>
+      <button id="play-again">Play Again</button>
+    </div>
+
+    <!-- Losers List -->
+    <div id="loser-list">
+      <h3>Fallen Champions</h3>
+      <button id="clear-losers">Clear Graveyard</button>
+      <div id="loser-thumbnails"></div>
+    </div>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
+ghi

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Chakra+Petch:wght@400;600&display=swap');
+
+:root {
+  --primary: #EC8305;
+  --secondary: #EC8305;
+  --accent: #EC8305;
+  --background: #091057;
+  --card-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: white;
+  font-family: 'Chakra Petch', sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 3rem;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+#round-counter {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+#characters {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.character-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 300px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.character-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.character-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 1rem 0;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 62, 62, 0.5);
+}
+
+#winner-display {
+  margin-top: 2rem;
+}
+
+#winner-label {
+  font-size: 2.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+  animation: pulse 2s infinite;
+}
+
+#loser-list {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+}
+
+#loser-list h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+#loser-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.loser-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.loser-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+#clear-losers {
+  background: var(--secondary);
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+.winner-frame {
+  border: 5px solid green; 
+  border-radius: 10px; 
+  padding: 5px; 
+  display: inline-block; 
+}
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  #characters {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .character-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
