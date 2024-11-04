@@ -24,7 +24,7 @@ body {
 }
 
 #app {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
@@ -131,6 +131,8 @@ button:hover {
   padding: 2rem;
   background: var(--card-bg);
   border-radius: 15px;
+  width: 100%;
+  margin: auto;
 }
 
 #loser-list h3 {
