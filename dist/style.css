@@ -61,14 +61,15 @@ h2 {
   border-radius: 15px;
   padding: 1.5rem;
   width: 300px;
-  backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .character-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px 5px rgba(255, 9, 9, 0.459);
+
 }
 
 .character-card img {
@@ -128,11 +129,13 @@ button:hover {
 
 #loser-list {
   margin-top: 3rem;
-  padding: 2rem;
+  padding: 1rem;
   background: var(--card-bg);
   border-radius: 15px;
   width: 100%;
   margin: auto;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+
 }
 
 #loser-list h3 {
@@ -150,9 +153,9 @@ button:hover {
 
 .loser-thumbnail {
   width: 80px;
-  height: 80px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5px;
   border: 2px solid var(--primary);
   transition: transform 0.2s ease;
 }
