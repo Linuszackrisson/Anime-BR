@@ -29,7 +29,7 @@ async function fetchRandomCharacter(): Promise<Character> {
       if (data.data && data.data[0]) {
           return {
               name: data.data[0].attributes.canonicalName,
-              imageUrl: data.data[0].attributes.image?.original || "placeholder.jpg"
+              imageUrl: data.data[0].attributes.image?.original || "/assets/placeholder.jpg"
           };
       }
       return fetchRandomCharacter();

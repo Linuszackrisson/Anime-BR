@@ -21,7 +21,7 @@ function fetchRandomCharacter() {
             if (data.data && data.data[0]) {
                 return {
                     name: data.data[0].attributes.canonicalName,
-                    imageUrl: ((_a = data.data[0].attributes.image) === null || _a === void 0 ? void 0 : _a.original) || "placeholder.jpg"
+                    imageUrl: ((_a = data.data[0].attributes.image) === null || _a === void 0 ? void 0 : _a.original) || "/assets/placeholder.jpg"
                 };
             }
             return fetchRandomCharacter();
@@ -74,6 +74,7 @@ function showChars() {
     document.getElementById("char1-image").src = char1.imageUrl;
     document.getElementById("char2-name").innerText = char2.name;
     document.getElementById("char2-image").src = char2.imageUrl;
+    // Ta bort ramen från båda karaktärerna
     document.getElementById("char1-image").classList.remove("winner-frame");
     document.getElementById("char2-image").classList.remove("winner-frame");
 }
