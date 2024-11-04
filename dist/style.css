@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Chakra+Petch:wght@400;600&display=swap');
 
 :root {
-  --primary: #EC8305;
-  --secondary: #EC8305;
-  --accent: #EC8305;
-  --background: #091057;
-  --card-bg: rgba(255, 255, 255, 0.1);
+  --primary: #E63946;      
+  --secondary: #457B9D;    
+  --accent: #F4A261;       
+  --background: #1D3557;   
+  --card-bg: rgba(255, 255, 255, 0.05); 
 }
+
 
 * {
   margin: 0;
@@ -32,7 +33,6 @@ h1 {
   font-family: 'Russo One', sans-serif;
   font-size: 3rem;
   color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
   margin-bottom: 1rem;
   letter-spacing: 2px;
 }
@@ -77,6 +77,8 @@ h2 {
   object-fit:cover;
   border-radius: 10px;
   margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+
 }
 
 .character-card h2 {
@@ -88,6 +90,7 @@ h2 {
 }
 
 button {
+  width: 200px;
   background: var(--primary);
   color: white;
   border: none;
@@ -106,6 +109,12 @@ button:hover {
   box-shadow: 0 0 20px rgba(255, 62, 62, 0.5);
 }
 
+.button-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
 #winner-display {
   margin-top: 2rem;
 }
@@ -152,11 +161,10 @@ button:hover {
 
 
 .winner-frame {
-  border: 5px solid green; 
-  border-radius: 10px; 
-  padding: 5px; 
-  display: inline-block; 
+  box-shadow: 0 0 15px 5px rgba(9, 255, 9, 0.8);
+  
 }
+
 
 
 

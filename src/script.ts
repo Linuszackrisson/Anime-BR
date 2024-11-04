@@ -82,8 +82,8 @@ function showChars() {
   (document.getElementById("char2-image") as HTMLImageElement).src = char2.imageUrl;
 
   // Ta bort ramen från båda karaktärerna
-  (document.getElementById("char1-image") as HTMLImageElement).classList.remove("winner-frame");
-  (document.getElementById("char2-image") as HTMLImageElement).classList.remove("winner-frame");
+  (document.getElementById("character1") as HTMLImageElement).classList.remove("winner-frame");
+  (document.getElementById("character2") as HTMLImageElement).classList.remove("winner-frame");
 }
 
 function updateRoundCounter() {
@@ -94,6 +94,7 @@ function declareWinner() {
   document.getElementById("character2")!.style.display = "none";
   document.getElementById("start-fight")!.style.display = "none";
   document.getElementById("loser-list")!.style.display = "none";
+  document.getElementById("clear-losers").style.display = "none"
   document.getElementById("winner-label")!.innerText = "WINNER";
   document.getElementById("winner-display")!.style.display = "block";
   document.getElementById("play-again")!.onclick = () => location.reload();
@@ -124,9 +125,9 @@ async function init() {
           
           // Lägg till ramen till vinnaren
           if (winner === "char1") {
-              (document.getElementById("char1-image") as HTMLImageElement).classList.add("winner-frame");
+              (document.getElementById("character1") as HTMLImageElement).classList.add("winner-frame");
           } else {
-              (document.getElementById("char2-image") as HTMLImageElement).classList.add("winner-frame");
+              (document.getElementById("character2") as HTMLImageElement).classList.add("winner-frame");
           }
 
           await replaceChar(winner === "char1" ? "char2" : "char1");
