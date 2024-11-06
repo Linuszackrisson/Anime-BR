@@ -1,8 +1,18 @@
 {
     "compilerOptions" : {
         "target" : "ES6",
-        "outDir" : "./dist"
+        "outDir" : "./dist",
+        "noImplicitAny": true,
+        "strict": true
     },
+    "noImplicitAny": true,
     "include" : ["./src"],
     "exclude" : []
   }
+
+  /* Adderade rad fem på grund att det kräver mig att vara tydlig med alla typer
+  i koden. */
+
+  /* Rad 6 tvinger mig att följa strika regler, te.x situationer där null 
+  undefined kan uppstå */ 
+  

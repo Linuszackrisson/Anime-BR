@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -42,11 +43,12 @@ function getChars() {
     });
 }
 function addLoser(loser) {
+    var _a;
     const img = document.createElement("img");
     img.src = loser.imageUrl;
     img.alt = loser.name;
     img.classList.add("loser-thumbnail");
-    document.getElementById("loser-thumbnails").appendChild(img);
+    (_a = document.getElementById("loser-thumbnails")) === null || _a === void 0 ? void 0 : _a.appendChild(img);
     const losers = JSON.parse(sessionStorage.getItem("losers") || "[]");
     losers.push(loser);
     sessionStorage.setItem("losers", JSON.stringify(losers));
@@ -70,13 +72,13 @@ function replaceChar(loser) {
     });
 }
 function showChars() {
+    var _a, _b;
     document.getElementById("char1-name").innerText = char1.name;
     document.getElementById("char1-image").src = char1.imageUrl;
     document.getElementById("char2-name").innerText = char2.name;
     document.getElementById("char2-image").src = char2.imageUrl;
-    // Ta bort ramen från båda karaktärerna
-    document.getElementById("character1").classList.remove("winner-frame");
-    document.getElementById("character2").classList.remove("winner-frame");
+    (_a = document.getElementById("character1")) === null || _a === void 0 ? void 0 : _a.classList.remove("winner-frame");
+    (_b = document.getElementById("character2")) === null || _b === void 0 ? void 0 : _b.classList.remove("winner-frame");
 }
 function updateRoundCounter() {
     document.getElementById("round-counter").innerText = `Round: ${roundCounter}`;
@@ -103,6 +105,7 @@ function init() {
         updateRoundCounter();
         loadLosers();
         document.getElementById("start-fight").onclick = () => __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
             roundCounter++;
             updateRoundCounter();
             if (roundCounter >= maxRounds) {
@@ -110,12 +113,11 @@ function init() {
             }
             else {
                 const winner = Math.random() < 0.5 ? "char1" : "char2";
-                // Lägg till ramen till vinnaren
                 if (winner === "char1") {
-                    document.getElementById("character1").classList.add("winner-frame");
+                    (_a = document.getElementById("character1")) === null || _a === void 0 ? void 0 : _a.classList.add("winner-frame");
                 }
                 else {
-                    document.getElementById("character2").classList.add("winner-frame");
+                    (_b = document.getElementById("character2")) === null || _b === void 0 ? void 0 : _b.classList.add("winner-frame");
                 }
                 yield replaceChar(winner === "char1" ? "char2" : "char1");
             }
