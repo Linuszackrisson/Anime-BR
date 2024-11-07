@@ -48,20 +48,31 @@ async function getChars(): Promise<Character[]> {
 }
 
 function addLoser(loser: Character) {
+  const losers = JSON.parse(sessionStorage.getItem("losers") || "[]");
+  losers.push(loser);
+  sessionStorage.setItem("losers", JSON.stringify(losers));
+
   const img = document.createElement("img");
   img.src = loser.imageUrl;
   img.alt = loser.name;
   img.classList.add("loser-thumbnail");
   document.getElementById("loser-thumbnails")?.appendChild(img);
-  const losers = JSON.parse(sessionStorage.getItem("losers") || "[]");
-  losers.push(loser);
-  sessionStorage.setItem("losers", JSON.stringify(losers));
 }
 
 function loadLosers() {
+  const loserThumbnails = document.getElementById("loser-thumbnails");
+  loserThumbnails!.innerHTML = "";
+
   const saved = JSON.parse(sessionStorage.getItem("losers") || "[]") as Character[];
-  saved.forEach((loser) => addLoser(loser));
+  saved.forEach((loser) => {
+    const img = document.createElement("img");
+    img.src = loser.imageUrl;
+    img.alt = loser.name;
+    img.classList.add("loser-thumbnail");
+    loserThumbnails?.appendChild(img);
+  });
 }
+
 
 async function replaceChar(loser: "char1" | "char2") {
   const newChar = await fetchRandomCharacter();

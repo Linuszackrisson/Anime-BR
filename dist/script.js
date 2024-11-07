@@ -44,18 +44,30 @@ function getChars() {
 }
 function addLoser(loser) {
     var _a;
+    // Lägg till loser i session storage
+    const losers = JSON.parse(sessionStorage.getItem("losers") || "[]");
+    losers.push(loser);
+    sessionStorage.setItem("losers", JSON.stringify(losers));
+    // Lägg till loser-bild direkt i DOM
     const img = document.createElement("img");
     img.src = loser.imageUrl;
     img.alt = loser.name;
     img.classList.add("loser-thumbnail");
     (_a = document.getElementById("loser-thumbnails")) === null || _a === void 0 ? void 0 : _a.appendChild(img);
-    const losers = JSON.parse(sessionStorage.getItem("losers") || "[]");
-    losers.push(loser);
-    sessionStorage.setItem("losers", JSON.stringify(losers));
 }
 function loadLosers() {
+    // Rensar loser-thumbnails för att undvika duplicering
+    const loserThumbnails = document.getElementById("loser-thumbnails");
+    loserThumbnails.innerHTML = "";
+    // Hämtar sparade förlorare från session storage och lägger till dem i DOM
     const saved = JSON.parse(sessionStorage.getItem("losers") || "[]");
-    saved.forEach((loser) => addLoser(loser));
+    saved.forEach((loser) => {
+        const img = document.createElement("img");
+        img.src = loser.imageUrl;
+        img.alt = loser.name;
+        img.classList.add("loser-thumbnail");
+        loserThumbnails === null || loserThumbnails === void 0 ? void 0 : loserThumbnails.appendChild(img);
+    });
 }
 function replaceChar(loser) {
     return __awaiter(this, void 0, void 0, function* () {
